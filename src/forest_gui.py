@@ -1,5 +1,5 @@
 import time
-from tkinter import Tk, Canvas, Label
+from tkinter import Tk, Canvas, Label, TclError
 
 from forest import Forest
 
@@ -56,10 +56,15 @@ class ForestGui(Forest):
     def run(self, num_generation):
         init_position = self.get_random_starting_tree()
         self.tree_fire_queue.append(init_position)
-        while True:
-            self.draw_forest()
-            self.gui.update()
-            self.burn_trees()
-            self.update_labels()
-            self.propagate_fire()
-            time.sleep(ForestGui.STEP_DURATION_SEC)
+        run = True
+        while run:
+            try:
+                self.draw_forest()
+                self.gui.update()
+                self.burn_trees()
+                self.update_labels()
+                self.propagate_fire()
+                time.sleep(ForestGui.STEP_DURATION_SEC)
+            except TclError:
+                print("The GUI application has been closed")
+                run = False
