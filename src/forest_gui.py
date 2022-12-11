@@ -1,13 +1,13 @@
 import time
 from tkinter import Tk, Canvas, Label
 
-from src.forest import Forest
+from forest import Forest
 
 
 class ForestGui(Forest):
     GUI_WIDTH = 800
     GUI_HEIGHT = 800
-    STEP_DURATION_SEC = 1
+    STEP_DURATION_SEC = 0.5
 
     def __init__(self, row_num, col_num, tree_probability):
         super().__init__(row_num, col_num, tree_probability)
@@ -46,7 +46,6 @@ class ForestGui(Forest):
             for x in range(0, self.col_num):
                 draw_x = x * TREE_WIDTH
                 draw_y = y * TREE_HEIGHT
-                print(y, x)
                 tree_color = self.get_tree_color(self.grid[y][x])
                 self.canvas.create_rectangle(draw_x, draw_y, draw_x + TREE_WIDTH, draw_y + TREE_HEIGHT, fill=tree_color)
 

@@ -1,4 +1,4 @@
-from src.forest import Forest
+from forest import Forest
 
 
 class ForestCLi(Forest):
