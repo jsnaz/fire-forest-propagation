@@ -1,5 +1,6 @@
-from forest import Forest, Position
+from forest_cli import ForestCLi
+from forest_gui import ForestGui
+from src.position import Position
 
-forest = Forest(5, 5, 0.2)
-forest.display_forest()
-forest.run(5, Position(2, 1))
+forest = ForestGui(50, 50, 0.5)
+forest.run(5)
