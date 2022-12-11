@@ -54,7 +54,7 @@ class ForestGui(Forest):
         self.proportion_trees_label["text"] = "Percentage of remaining trees: " + \
                                               str(self.get_trees_proportion()) + "%"
 
-    def run(self, num_generation=None):
+    def run(self, num_generation):
         init_position = self.get_random_starting_tree()
         self.tree_fire_queue.append(init_position)
         while True:

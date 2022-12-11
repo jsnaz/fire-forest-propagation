@@ -33,7 +33,7 @@ class Forest(ABC):
     def draw_forest(self):
         pass
 
-    def check_coordinates_valid(self, position: Position):
+    def check_coordinates_valid(self, position):
         # invalid condition for the row
         if position.row < 0 or position.row >= self.row_num:
             return False
@@ -75,6 +75,7 @@ class Forest(ABC):
         self.tree_fire = []
         while self.tree_fire_queue:
             tree_position = self.tree_fire_queue.pop(0)
+            print(tree_position)
             self.grid[tree_position.row][tree_position.col].state = 2
             self.tree_fire.append(tree_position)
             new_positions = self.find_neighbors(tree_position)

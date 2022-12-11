@@ -21,7 +21,7 @@ class ForestCLi(Forest):
             row_tree_symbol = [self.get_symbol(tree) for tree in row_trees]
             print(" ".join(row_tree_symbol))
 
-    def run(self, num_generation=None):
+    def run(self, num_generation):
         init_position = self.get_random_starting_tree()
         self.tree_fire_queue.append(init_position)
         for num_generation in range(1, num_generation + 1):
